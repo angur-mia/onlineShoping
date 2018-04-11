@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="customerReport" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="89b16111-9b3b-43f9-9d40-4fd7d623d252">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="email" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     user_trans.`id` AS user_trans_id,
+     user_trans.`user_email` AS user_trans_user_email,
+     user_trans.`pro_id` AS user_trans_pro_id,
+     user_trans.`pro_name` AS user_trans_pro_name,
+     user_trans.`price` AS user_trans_price,
+     user_trans.`qty` AS user_trans_qty,
+     user_trans.`total` AS user_trans_total,
+     user_trans.`tr_date` AS user_trans_tr_date,
+     shop_user.`user_id` AS shop_user_user_id,
+     shop_user.`email` AS shop_user_email,
+
+     shop_user.`reg_date` AS shop_user_reg_date,
+     shop_user.`contact_no` AS shop_user_contact_no,
+
+
+     shop_user.`shoper_name` AS shop_user_shoper_name
+FROM
+     `user_trans` user_trans,
+     `shop_user` shop_user
+where email=$P{email} AND user_email=$P{email}]]>
+	</queryString>
+	<field name="user_trans_id" class="java.lang.Integer"/>
+	<field name="user_trans_user_email" class="java.lang.String"/>
+	<field name="user_trans_pro_id" class="java.lang.Integer"/>
+	<field name="user_trans_pro_name" class="java.lang.String"/>
+	<field name="user_trans_price" class="java.lang.Double"/>
+	<field name="user_trans_qty" class="java.lang.Integer"/>
+	<field name="user_trans_total" class="java.lang.Double"/>
+	<field name="user_trans_tr_date" class="java.sql.Timestamp"/>
+	<field name="shop_user_user_id" class="java.lang.Integer"/>
+	<field name="shop_user_email" class="java.lang.String"/>
+	<field name="shop_user_reg_date" class="java.sql.Date"/>
+	<field name="shop_user_contact_no" class="java.lang.String"/>
+	<field name="shop_user_shoper_name" class="java.lang.String"/>
+	<variable name="subtotal" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{user_trans_total}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="34" splitType="Stretch">
+			<staticText>
+				<reportElement x="94" y="0" width="345" height="34" uuid="6993803e-d550-4b5b-973f-54992efd3a30"/>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Customer Buy Report]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="85" splitType="Stretch">
+			<staticText>
+				<reportElement x="3" y="2" width="91" height="20" uuid="3c4ed588-0bde-45cc-85de-108d6460a067"/>
+				<text><![CDATA[Cutomer ID            :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="23" width="91" height="20" uuid="c02c5117-7440-41a2-be8f-00b554a9bdb7"/>
+				<text><![CDATA[Cutomer Name    :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="44" width="91" height="20" uuid="5ef34f2d-07cf-48af-bee4-985c2017dbc2"/>
+				<text><![CDATA[Cutomer Mobile    :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="113" y="2" width="148" height="20" uuid="b6db7842-c2d2-4975-abc0-c7362ac981eb"/>
+				<textFieldExpression><![CDATA[$F{shop_user_user_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="113" y="22" width="148" height="20" uuid="1ff0ad92-1c46-4dc9-b0e2-3ccb5eb9e7e8"/>
+				<textFieldExpression><![CDATA[$F{shop_user_shoper_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="113" y="43" width="148" height="20" uuid="c2cb5538-ee3a-481b-ac59-1b0510aa95ae"/>
+				<textFieldExpression><![CDATA[$F{shop_user_contact_no}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="170" y="2" width="55" height="20" uuid="99621aab-f013-4982-8470-ab78d7e1fc93"/>
+				<text><![CDATA[Product ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="226" y="2" width="100" height="20" uuid="8279c6d5-3c04-4976-941a-dd40bf2e854a"/>
+				<text><![CDATA[Product Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="372" y="0" width="51" height="20" uuid="d5fbce10-afef-4be9-b3fc-5b581d613062"/>
+				<text><![CDATA[Unit price]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="2" width="28" height="20" uuid="a84c7f60-e7fb-4052-bf7d-d5a0df8d536e"/>
+				<text><![CDATA[SL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="428" y="2" width="29" height="20" uuid="be5eb69c-06e5-4a47-861c-8a1eebb84b16"/>
+				<text><![CDATA[Quntity]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="464" y="2" width="65" height="20" uuid="aae18064-baa5-4b66-96fe-57532aca9ec2"/>
+				<text><![CDATA[Total Price]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="45" y="2" width="112" height="20" uuid="94de7f94-3099-4365-bd74-0d6b13b8aa02"/>
+				<text><![CDATA[Buy Date]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="183" y="0" width="55" height="20" uuid="213e3389-aa1c-47ce-926b-7d2a3d737c23"/>
+				<textFieldExpression><![CDATA[$F{user_trans_pro_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="242" y="2" width="100" height="20" uuid="61393069-11e3-4b48-b99e-d6ce5c91fe4f"/>
+				<textFieldExpression><![CDATA[$F{user_trans_pro_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="385" y="1" width="51" height="20" uuid="59be9ec3-aad4-45d6-a47d-3e6852dbe4f1"/>
+				<textFieldExpression><![CDATA[$F{user_trans_price}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="3" y="2" width="28" height="20" uuid="8bca7de9-67de-40f7-8496-1a192b3d520e"/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="436" y="1" width="32" height="20" uuid="224c758e-8065-4944-8294-9daffedd294f"/>
+				<textFieldExpression><![CDATA[$F{user_trans_qty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="474" y="1" width="65" height="20" uuid="a512c9eb-d741-4775-8340-45a2b43d7bc2"/>
+				<textFieldExpression><![CDATA[$F{user_trans_total}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="45" y="3" width="112" height="20" uuid="81cf93d5-884c-4cac-9808-ba69965b970e"/>
+				<textFieldExpression><![CDATA[$F{user_trans_tr_date}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="468" y="0" width="71" height="20" uuid="4fadf220-e377-4539-900e-cfea4c1637c7"/>
+				<textFieldExpression><![CDATA[$V{subtotal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

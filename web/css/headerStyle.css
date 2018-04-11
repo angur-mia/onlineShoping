@@ -1,0 +1,120 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+
+ 
+    Created on : May 1, 2015, 11:10:28 PM
+    Author     : nasir
+
+*/.main{
+    width: 90.5%;
+    height: 120px;
+    
+
+    margin: 0 auto;
+    border: 1px solid black;
+    border-color: #285e8e;
+}/*
+*/.logo{
+    width: 40%;
+    float: left;
+    margin-right: 2%;
+
+}/*
+*/.header_right{
+    width: 50%;
+    float: right;
+    //  background-color: blueviolet;
+    height: 100px;
+
+
+
+
+}
+
+
+
+.singin_link{
+    float: right;
+   margin-top: 10px;
+
+}
+
+.mainDivIndex{
+    width: 90.5%;
+    margin: 0 auto;
+    
+}
+.contentIndex{
+    width: 79%;
+    margin-left: 1%;
+    float: left;
+    margin-top: 5px;
+}
+.leftSidebarIndex{
+    width: 20%;
+    float: left;
+}
+.footerDiv{
+    width: 100%;
+    float: left;
+    margin-top: 20px;
+        
+
+    
+    
+}
+.footerpageDiv{
+    height: 200px;
+    background-color: #3e2929;
+}
+/*
+//horizontal menu bar
+ul {
+    float: left;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+a {
+    float: left;
+    width: 6em;
+    text-decoration: none;
+    color: white;
+    background-color: #262927;
+    padding: 0.75em 0.9em;
+    border-right: 1px solid white;
+}
+
+a:hover {
+    background-color: #01b95a;
+}
+
+li {
+    display: inline;
+}*/
+
+/*Index page css here*/
+
+
+
+.smallSlider_index{
+    margin-top: 5px;
+}
+.smallSlide_image{
+    
+    width: 200px;
+    height: 250px;
+ 
+}
+.smallSlide_image:hover{
+    border: 2px outset burlywood;
+    border-radius: 10px;
+}
+/*
+footer css start here
+*/
+          

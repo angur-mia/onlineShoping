@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <style>
+            #divMain15{
+                background-color: #5e5e5e;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <div id="divMain12">
+            <h:form>
+                <p:panel id="divMain15" header="Admin Control">
+                    <p:tieredMenu style="width:100%; border: none">
+
+
+                        <p:separator />
+                        <p:menuitem value="Home" url="index.xhtml"/>
+
+                        <p:separator />
+                        <p:submenu label="Save Product">
+                            <p:menuitem value="Add New Category" url="addNewCategory.xhtml"/>
+                            <p:menuitem value="Add Sub-Category" url="addNewSubCategory.xhtml"/>
+                            <p:menuitem value="Add Product" url="addNewProduct.xhtml"/>
+                            <p:menuitem value="Add Purchase" url="purchasePoductTable.xhtml"/>
+                        </p:submenu>
+                        <p:separator />
+                        <p:submenu label="Update Product" >
+                            <p:menuitem value="Update Category" url="updateCategory.xhtml"/>
+                            <p:menuitem value="Update Sub-Category" url="updateSubCategory.xhtml"/>
+                            <p:menuitem value="Update Product" url="updatePoductTable.xhtml"/>
+                            <p:menuitem value="Update Purchase" url="updatePurchase.xhtml"/>
+                        </p:submenu>
+                        <p:separator />
+                        <p:submenu label="Show Product" >
+                            <p:menuitem value="Show all Category" url="allCategoryPage.xhtml"/>
+                            <p:menuitem value="Show all Sub-Category" url="allSubCategoryPage.xhtml"/>
+                            <p:menuitem value="Show all Product" url="allProductPage.xhtml"/>
+                        </p:submenu>
+
+                        <p:separator />
+                        <p:submenu label="Role">
+                            <p:menuitem value="Add Role" url="addNewRole.xhtml"/>
+                            <p:menuitem value="Update Role" url="updateRole.xhtml"/>
+                        </p:submenu>
+
+                        <p:separator />
+                        <p:submenu label="Transport Cost">
+                            <p:menuitem value="New Zone" url="addNewZone.xhtml"/>
+                            <p:menuitem value="Update Zone" url="updateDeliveryCost.xhtml"/>
+                        </p:submenu>
+
+                        <p:separator />
+                        <p:submenu label="Galaria">
+                            <p:menuitem value="New Zone" url="addNewZone.xhtml"/>
+                            <p:menuitem value="Update Zone" url="updateDeliveryCost.xhtml"/>
+                        </p:submenu>
+
+                        <p:separator />
+                        <p:menuitem value="Gift" url="#"/> 
+
+                        <p:separator />
+                        <p:menuitem value="Jewellery" url="#"/>
+                        <p:separator />
+                        <p:menuitem value="Kids &amp; Mom" />
+
+                        <p:separator />
+                        <p:menuitem value="Home &amp; Kitchen" url="#"/>
+                        <p:separator />
+						
+						 <p:submenu label="Jsper Report">
+                            <p:menuitem value="Sales Report" url="salesReport.xhtml"/>
+                            <p:menuitem value="Purches Report" url="buyReport.xhtml"/>
+                            <p:menuitem value="Customer Report" url="customerReport.xhtml"/>
+                        </p:submenu>
+						
+                    </p:tieredMenu>
+                </p:panel>
+                <p:graphicImage url="project_image/cash_delevery.jpg" width="100%"/>
+                <p:graphicImage url="project_image/Send-a-gift.jpg" width="100%"/>
+                <p:graphicImage url="project_image/call-priyoshop.gif" width="100%"/>
+            </h:form>
+        </div>
+
+    </h:body>
+</html>
+

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 30, 2016 9:18:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Product" table="product" catalog="shop_online" optimistic-lock="version">
+        <id name="proId" type="java.lang.Integer">
+            <column name="pro_id" />
+            <generator class="identity" />
+        </id>
+        <property name="subCatId" type="java.lang.Integer">
+            <column name="sub_cat_id" />
+        </property>
+        <property name="proName" type="string">
+            <column name="pro_name" length="100" not-null="true" />
+        </property>
+        <property name="proQty" type="java.lang.Integer">
+            <column name="pro_qty" />
+        </property>
+        <property name="proPrice" type="java.lang.Double">
+            <column name="pro_price" precision="22" scale="0" />
+        </property>
+        <property name="proUrl" type="string">
+            <column name="pro_url" length="100" />
+        </property>
+        <property name="proDesc" type="string">
+            <column name="pro_desc" length="200" />
+        </property>
+        <property name="proSize" type="string">
+            <column name="pro_size" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

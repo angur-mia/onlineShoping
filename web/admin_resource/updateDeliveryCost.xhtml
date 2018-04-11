@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <link href="../css_file/headerStyle.css" rel="stylesheet" type="text/css" media="screen"/>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <!--<meta name="description" content="Made with WOW Slider - Create beautiful, responsive image sliders in a few clicks. Awesome skins and animations. Bootstrap slider" />-->
+
+        <!-- Start WOWSlider.com HEAD section --> <!-- add to the <head> of your page -->
+        <link rel="stylesheet" type="text/css" href="../engine1/style.css" />
+        <script type="text/javascript" src="../engine1/jquery.js"></script>
+        <!-- End WOWSlider.com HEAD section -->
+        <style>
+            .addCategoryForm{
+                margin-left: 22%;
+                margin-top: 10px;
+
+                height: 250px;
+                width: 80%;
+
+            }
+
+            .footerDiv{
+                width: 100%;
+                float: left;
+                
+
+
+
+
+            }
+
+        </style>
+
+    </h:head>
+    <h:body>
+
+        <ui:include src="header.xhtml"/>  
+
+        <div class="mainDivIndex">
+
+            <div class="leftSidebarIndex" style=" margin-right: 20px;">
+
+                <ui:include src="catagory.xhtml"/>
+
+
+            </div>
+
+            <div class="addCategoryForm" >
+
+
+                <h:form>
+
+                    <div style="width: 98%; ">
+                        <p:panel id="panel"   style="margin-left:20%; width: 55%;">
+                            <h:panelGrid columns="2" cellpadding="5" style="margin-left: 20px;">
+                                <f:facet name="header" id="titleForm">
+                                    <span style="font-size: 22px;"><p:outputLabel value="Update Delivery Zone"/></span>
+                                </f:facet>
+                                <h:outputLabel for="zoneName" value="Zone Name "  style="margin-top: 20px;"/>
+                                <p:selectOneMenu id="zoneName"  value="#{deliveryCostMB.zoneName}"  style="width: 100%">
+                                    <f:selectItem itemLabel="Select Zone" itemValue="" noSelectionOption="true"/>
+                                    <p:ajax event="change" listener="#{deliveryCostMB.distributeAllData()}" update="deliId, zoneName1 deliCost" />
+                                    <f:selectItems value="#{deliveryCostMB.list}"/>
+                                   
+                                </p:selectOneMenu>
+                                <h:outputLabel for="deliId" value="Delivery Identity :"  style="margin-top: 20px;"/>
+                                <p:inputText id="deliId" value="#{deliveryCostMB.delivaryCost.delivaryId}" required="true" />
+
+                                <h:outputLabel for="zoneName1" value="Zone Name :" />
+                                <p:inputText id="zoneName1" value="#{deliveryCostMB.delivaryCost.zoneName}"  />
+                                
+                                <h:outputLabel for="deliCost" value="Delivery Cost :" />
+                                <p:inputText id="deliCost" value="#{deliveryCostMB.delivaryCost.delivaryCost}"  />
+
+                                <h:outputLabel for="msg" value="Result :" />
+                                <p:outputLabel value="#{deliveryCostMB.message}" id="msg"  />
+
+
+                            </h:panelGrid>
+
+                        </p:panel>
+
+                        <p:commandButton style="margin-left:20%;" value="Update Zone" action="#{deliveryCostMB.updateUserRole()}" update="msg tblDat"/>
+                        <p:commandButton value="Delete" action="#{deliveryCostMB.deleteZoneName()}" update="msg  panel tblDat"/>
+
+                        <p:commandButton style="margin-bottom: 12px;" value="Clear" action="#{deliveryCostMB.createClear()}" update="panel"/>
+
+                        <center style="margin-left: 5%;">
+
+                            
+                            <p:outputLabel style="font-size: 22px; font-family: sans-serif;  margin-top: 12px; margin-bottom: 12px; " value="List of all Delivary Zone"/>
+                            <p:dataTable var="data"  value="#{deliveryCostMB.listZone}" id="tblDat" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+                                         paginator="true" rows="7" style="margin-bottom:20px; margin-top: 12px; width: 100%;">
+                                <p:column headerText="Role Identity">
+                                    <p:outputLabel value="#{data.delivaryId}"/>
+                                </p:column>
+                                <p:column headerText="Role Name">
+                                    <p:outputLabel value="#{data.zoneName}"/>
+                                </p:column>
+                                <p:column headerText="Delivary Cost">
+                                    <p:outputLabel value="#{data.delivaryCost}"/>
+                                </p:column>
+                            </p:dataTable>
+                             <p:fieldset legend="Export your necessary information" toggleable="true" toggleSpeed="500"  style=" font-size: 12px;       
+                                    padding: 1em;float:left; ; margin-right:0.5em; padding-top:0.2em; text-align:left; 
+                                    border:1px solid green; font-weight:bold;">
+                            <h:commandLink style="margin-right: 20px;">
+                                <p:graphicImage value="../demo/images/excel_logo.png" alt="EXCEL Format" width="60" height="60"/>
+                                <p:dataExporter type="xls" target="tblDat" fileName="Delivary_Cost" />
+                            </h:commandLink>
+
+                            <h:commandLink style="margin-right: 20px;">
+                                <p:graphicImage value="../demo/images/pdf_logo.jpg" alt="PDF Format" width="60" height="60" />
+                                <p:dataExporter type="pdf" target="tblDat" fileName="Delivary_Cost"/>
+                            </h:commandLink>
+
+                            <h:commandLink style="margin-right: 20px;">
+                                <p:graphicImage value="../demo/images/csv_logo.png" alt="CSV Format" width="60" height="60"/>
+                                <p:dataExporter type="csv" target="tblDat" fileName="Delivary_Cost" />
+                            </h:commandLink>
+
+                            <h:commandLink style="margin-right: 20px;">
+                                <p:graphicImage value="../demo/images/xml_logo.png" alt="XML Format" width="60" height="60"/>
+                                <p:dataExporter type="xml" target="tblDat" fileName="Delivary_Cost" />
+                            </h:commandLink>
+                        </p:fieldset>
+
+                        </center>
+
+                    </div>
+
+
+
+
+
+                </h:form>
+
+
+            </div>
+
+
+
+            <div class="footerDiv">
+                <ui:include src="footer.xhtml"/>
+            </div>
+
+        </div>
+    </h:body>
+</html>
+
+
+

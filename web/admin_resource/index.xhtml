@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <link href="../assets/headerStyle.css" rel="stylesheet" type="text/css" media="screen"/>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <!--<meta name="description" content="Made with WOW Slider - Create beautiful, responsive image sliders in a few clicks. Awesome skins and animations. Bootstrap slider" />-->
+
+        <!-- Start WOWSlider.com HEAD section --> <!-- add to the <head> of your page -->
+        <link rel="stylesheet" type="text/css" href="../engine1/style.css" />
+        <script type="text/javascript" src="../engine1/jquery.js"></script>
+        <!-- End WOWSlider.com HEAD section -->
+
+    </h:head>
+    <h:body>
+        <h:form>
+            <ui:include src="header.xhtml"/>  
+
+        </h:form>
+
+
+        <div class="mainDivIndex">
+
+            <div class="leftSidebarIndex" style="margin-top: 5px">
+                <h:form>
+                    <ui:include src="catagory.xhtml"/>
+
+                </h:form>
+            </div>
+
+            
+            <h:form>
+                <div class="footerDiv">
+                    <ui:include src="footer.xhtml"/>
+                </div>
+            </h:form>
+        </div>
+
+    </h:body>
+</html>
+
+
+

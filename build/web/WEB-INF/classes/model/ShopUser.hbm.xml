@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 30, 2016 9:18:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.ShopUser" table="shop_user" catalog="shop_online" optimistic-lock="version">
+        <id name="userId" type="java.lang.Integer">
+            <column name="user_id" />
+            <generator class="identity" />
+        </id>
+        <property name="email" type="string">
+            <column name="email" length="45" unique="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="45" />
+        </property>
+        <property name="regDate" type="date">
+            <column name="reg_date" length="10" />
+        </property>
+        <property name="contactNo" type="string">
+            <column name="contact_no" length="11" />
+        </property>
+        <property name="roleId" type="java.lang.Integer">
+            <column name="role_id" />
+        </property>
+        <property name="address" type="string">
+            <column name="address" length="150" />
+        </property>
+        <property name="country" type="string">
+            <column name="country" length="45" />
+        </property>
+        <property name="district" type="string">
+            <column name="district" length="45" />
+        </property>
+        <property name="zipCode" type="string">
+            <column name="zip_code" length="45" />
+        </property>
+        <property name="shoperName" type="string">
+            <column name="shoper_name" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

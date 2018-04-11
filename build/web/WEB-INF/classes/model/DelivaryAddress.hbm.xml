@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 30, 2016 9:18:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.DelivaryAddress" table="delivary_address" catalog="shop_online" optimistic-lock="version">
+        <id name="delivaryId" type="java.lang.Integer">
+            <column name="delivary_id" />
+            <generator class="identity" />
+        </id>
+        <property name="shoperName" type="string">
+            <column name="shoper_name" length="45" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="45" />
+        </property>
+        <property name="phone" type="string">
+            <column name="phone" length="15" />
+        </property>
+        <property name="district" type="string">
+            <column name="district" length="45" />
+        </property>
+        <property name="country" type="string">
+            <column name="country" length="45" />
+        </property>
+        <property name="zipCode" type="string">
+            <column name="zip_code" length="45" />
+        </property>
+        <property name="reciveTime" type="string">
+            <column name="recive_time" length="45" />
+        </property>
+        <property name="orderTime" type="timestamp">
+            <column name="order_time" length="19" />
+        </property>
+        <property name="address" type="string">
+            <column name="address" length="150" />
+        </property>
+        <property name="comments" type="string">
+            <column name="comments" length="200" />
+        </property>
+    </class>
+</hibernate-mapping>

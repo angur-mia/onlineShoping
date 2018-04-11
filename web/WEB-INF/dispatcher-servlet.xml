@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- was: <?xml version="1.0" encoding="UTF-8"?> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-3.0.xsd
+http://www.springframework.org/schema/mvc 
+http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+    
+    <context:component-scan base-package="controller"/>
+
+    <mvc:annotation-driven/>
+    
+    <mvc:resources location="/css/**" mapping="/assets/**" />
+    <mvc:resources location="/js/**" mapping="/js/**" />
+    <mvc:resources location="/images/home/**" mapping="/images/home/**" />
+    <mvc:resources location="/images/product-details/**" mapping="/images/product-details/**" />
+    <mvc:resources location="/images/payment_Logo/**" mapping="/images/payment_Logo/**" />
+    <mvc:resources location="/images/cart/**" mapping="/images/cart/**" />
+    <mvc:resources location="/images/404/**" mapping="/images/404/**" />
+    <mvc:resources location="../data1/images/**" mapping="../data1/images/**" />
+    <mvc:resources location="../data1/tooltips/**" mapping="../data1/images/**" />
+    <mvc:resources location="/css/**" mapping="/css_file/**" />
+    <mvc:resources location="/resources/**" mapping="/resources/**" />
+    <mvc:resources location="/fonts/**" mapping="/fonts/**" />
+
+    <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
+
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+          p:prefix="/"
+          p:suffix="" />
+
+    <!--
+    The index controller.
+    -->
+    <bean name="indexController"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="index" />
+
+</beans>

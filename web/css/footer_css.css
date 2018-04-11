@@ -1,0 +1,143 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 11, 2015, 11:57:30 PM
+    Author     : nasir
+*/
+  #cityu-footer, #cityu-footer a {
+                color: #ACD5EA;
+            }
+            #cityu-footer {
+                background-color: #473f3f;
+                border-bottom: 15px solid #84BA5C;
+                font-size: 13px;
+                text-shadow: 0 1px 0 #013C5A;
+            }
+            .cityu-outer {
+                clear: both;
+                min-width: 96%;
+                width: 100%;
+            }
+
+            #cityu-footer-nav-list > ul > li + li {
+                margin-left: 10%;
+            }
+            #cityu-footer-nav-list > ul > li {
+                color: #FFFFFF;
+                float: left;
+                font-size: 13px;
+                line-height: 1.1;
+                margin: 0 5px;
+            }
+            #cityu-footer-nav-list > ul > li > ul > li > ul {
+                display: none;
+            }
+            ol, ul {
+                list-style: none outside none;
+                padding: 0;
+            }
+            #cityu-footer .cityu-inner {
+                overflow: hidden;
+            }
+            .cityu-inner {
+                margin: auto;
+                width: 96%;
+            }
+
+            #cityu-footer-nav-list {
+                clear: both;
+                font-family: 'Segoe UI','PT Sans',Helvetica,Arial,sans-serif;
+                overflow: hidden;
+                padding: 40px 0 0;
+            }
+
+            #cityu-footer hr {
+                border-color: #013C5A #4E8FC2 #4E8FC2;
+                border-style: solid;
+                border-width: 1px;
+            }
+
+            #cityu-footer-nav-list .cityu-icon-home {
+                display: none;
+            }
+            #cityu-footer-nav-list > ul > li {
+                color: #FFFFFF;
+                float: left;
+                font-size: 15px;
+                line-height: 1.1;
+                margin: 0 5px;
+            }
+
+            #cityu-footer-nav-list li {
+                width: 126px;
+            }
+
+            #cityu-footer-links a + a {
+                padding-left: 5px;
+            }
+            html > body hr {
+                margin: 20px 0 8px;
+            }
+            hr {
+                margin: 0;
+            }
+            hr {
+                clear: both;
+                display: block;
+            }
+            #cityu-footer-column {
+                clear: both;
+                overflow: hidden;
+                padding: 12px 0 15px 5px;
+            }
+            #cityu-footer-nav-list > ul > li > a {
+                color: #FFFFFF;
+                display: inline-block;
+                margin-bottom: 10px;
+                /* min-height: 30px;*/
+                padding: 0;
+            }
+            #cityu-footer, #cityu-footer a {
+                color: #ACD5EA;
+            }
+            #cityu-footer, #cityu-footer a:hover {
+                color: #FFFFFF;
+            }
+            #cityu-footer-nav-list > ul > li > ul > li {
+                font-size: 13px;
+                line-height: 1;
+                padding: 4px 0;
+            }
+
+            #cityu-footer-nav-list > ul > li > ul > li > a {
+                display: inline-block;
+                padding: 0;
+            }
+            #cityu-footer, #cityu-footer a {
+                color: #ACD5EA;
+            }
+            #cityu-footer-notes {
+                float: left;
+            }
+            #cityu-footer-links {
+                color: #FFFFFF;
+                padding-bottom: 5px;
+            }
+
+            #cityu-footer-links a {
+                color: #FFFFFF;
+                padding: 0 5px 0 0;
+            }
+
+            #cityu-footer-icons {
+                float: right;
+            }
+            a {
+                color: #0074A3;
+                text-decoration: none;
+            }
+
+

@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <link href="../css_file/headerStyle.css" rel="stylesheet" type="text/css" media="screen"/>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <!--<meta name="description" content="Made with WOW Slider - Create beautiful, responsive image sliders in a few clicks. Awesome skins and animations. Bootstrap slider" />-->
+
+        <!-- Start WOWSlider.com HEAD section --> <!-- add to the <head> of your page -->
+        <link rel="stylesheet" type="text/css" href="../engine1/style.css" />
+        <script type="text/javascript" src="../engine1/jquery.js"></script>
+        <!-- End WOWSlider.com HEAD section -->
+        <style>
+            .addCategoryForm{
+                margin-left: 22%;
+                margin-top: 10px;
+                margin-bottom: 20px;
+                height: 250px;
+                width: 80%;
+
+            }
+
+            .footerDiv{
+                width: 100%;
+                float: left;
+                margin-top: 200px;
+
+
+
+
+            }
+
+        </style>
+
+    </h:head>
+    <h:body>
+
+        <ui:include src="header.xhtml"/>  
+
+        <div class="mainDivIndex">
+
+            <div class="leftSidebarIndex" style=" margin-right: 20px;">
+
+                <ui:include src="catagory.xhtml"/>
+
+
+            </div>
+
+            <div class="addCategoryForm" >
+
+
+                <h:form>
+                    <center>
+                        <h2>List of all Sub-Category</h2>
+
+                        <p:dataTable var="data"  value="#{subCategoryMB.listCategory}" id="tblDat" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+                                     paginator="true" rows="15" style="margin-bottom:20px; width: 95%;">
+                            <p:column headerText="Sub-Category Id">
+                                <p:outputLabel value="#{data.subCatId}"/>
+                            </p:column>
+                            <p:column headerText="Category Id">
+                                <p:outputLabel value="#{data.catId}"/>
+                            </p:column>
+                            <p:column headerText="Sub-Category">
+                                <p:outputLabel value="#{data.subCatName}"/>
+                            </p:column>
+                            <p:column headerText="Description">
+                                <p:outputLabel value="#{data.subCatDesc}"/>
+                            </p:column>
+                        </p:dataTable>
+
+                        <p:fieldset legend="Export your necessary information" toggleable="true" toggleSpeed="500"  style=" font-size: 12px;       
+                                    padding: 1em;float:left; ; margin-right:0.5em; padding-top:0.2em; text-align:left; 
+                                    border:1px solid green; font-weight:bold;">
+                            <h:commandLink style="margin-right: 20px;">
+                                <p:graphicImage value="../demo/images/excel_logo.png" alt="EXCEL Format" width="60" height="60"/>
+                                <p:dataExporter type="xls" target="tblDat" fileName="Trainss_info" />
+                            </h:commandLink>
+
+                            <h:commandLink style="margin-right: 20px;">
+                                <p:graphicImage value="../demo/images/pdf_logo.jpg" alt="PDF Format" width="60" height="60" />
+                                <p:dataExporter type="pdf" target="tblDat" fileName="Trainss_info"/>
+                            </h:commandLink>
+
+                            <h:commandLink style="margin-right: 20px;">
+                                <p:graphicImage value="../demo/images/csv_logo.png" alt="CSV Format" width="60" height="60"/>
+                                <p:dataExporter type="csv" target="tblDat" fileName="Trainss_info" />
+                            </h:commandLink>
+
+                            <h:commandLink style="margin-right: 20px;">
+                                <p:graphicImage value="../demo/images/xml_logo.png" alt="XML Format" width="60" height="60"/>
+                                <p:dataExporter type="xml" target="tblDat" fileName="Trainss_info" />
+                            </h:commandLink>
+                        </p:fieldset>
+                    </center>
+
+
+
+
+
+                </h:form>
+
+
+            </div>
+
+
+
+            <div class="footerDiv">
+                <ui:include src="footer.xhtml"/>
+            </div>
+
+        </div>
+    </h:body>
+</html>
+
+
+

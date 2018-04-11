@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/shop_online?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">apcl123456</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <mapping resource="model/UserTrans.hbm.xml"/>
+    <mapping resource="model/ShopUser.hbm.xml"/>
+    <mapping resource="model/Sell.hbm.xml"/>
+    <mapping resource="model/ProOrderDetails.hbm.xml"/>
+    <mapping resource="model/Choose.hbm.xml"/>
+    <mapping resource="model/Sliderfont.hbm.xml"/>
+    <mapping resource="model/Userinfo.hbm.xml"/>
+    <mapping resource="model/Wishlist.hbm.xml"/>
+    <mapping resource="model/Admin.hbm.xml"/>
+    <mapping resource="model/SubCategory.hbm.xml"/>
+    <mapping resource="model/Product.hbm.xml"/>
+    <mapping resource="model/DelivaryCost.hbm.xml"/>
+    <mapping resource="model/Category.hbm.xml"/>
+    <mapping resource="model/ProOrder.hbm.xml"/>
+    <mapping resource="model/Purchase.hbm.xml"/>
+    <mapping resource="model/DelivaryAddress.hbm.xml"/>
+    <mapping resource="model/UserRole.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

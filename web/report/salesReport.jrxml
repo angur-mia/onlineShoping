@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cdf4a32c-12fc-40dc-81a8-e773d1b7daa8">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="startDate" class="java.util.Date"/>
+	<parameter name="endDate" class="java.util.Date">
+		<defaultValueExpression><![CDATA[$F{sell_A_sell_date}]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     
+   
+     sell_A.`pro_name` AS sell_A_pro_name,
+     sell_A.`pur_price` AS sell_A_pur_price,
+     sell_A.`sell_price` AS sell_A_sell_price,
+     sell_A.`sell_qty` AS sell_A_sell_qty,
+     sell_A.`sell_total` AS sell_A_sell_total,
+     sell_A.`profit` AS sell_A_profit,
+     sell_A.`sell_date` AS sell_A_sell_date
+FROM
+     `sell` sell_A
+Where sell_date BETWEEN $P{startDate} AND $P{endDate}]]>
+	</queryString>
+	<field name="sell_A_pro_name" class="java.lang.String"/>
+	<field name="sell_A_pur_price" class="java.lang.Double"/>
+	<field name="sell_A_sell_price" class="java.lang.Double"/>
+	<field name="sell_A_sell_qty" class="java.lang.Integer"/>
+	<field name="sell_A_sell_total" class="java.lang.Double"/>
+	<field name="sell_A_profit" class="java.lang.Double"/>
+	<field name="sell_A_sell_date" class="java.sql.Timestamp"/>
+	<variable name="tQuntity" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{sell_A_sell_qty}]]></variableExpression>
+	</variable>
+	<variable name="total_sale" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{sell_A_sell_total}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement x="173" y="0" width="212" height="27" uuid="354bb8f1-19ab-4e42-aefd-a201b59e7b59"/>
+				<textElement markup="none">
+					<font size="18" isBold="true" isItalic="true" isUnderline="true" isStrikeThrough="false" isPdfEmbedded="false"/>
+				</textElement>
+				<text><![CDATA[Monthly Sales Report]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="62" y="38" width="100" height="20" uuid="2f33435b-b28a-4ffd-a9d0-78e8a50a4fed"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="38" width="62" height="20" uuid="f61979af-d2e6-4a63-bc90-2a1cb0738e2b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Genrate On]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="50" y="2" width="112" height="20" uuid="994bdb46-4629-4f55-8318-77e6f6387ff5"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Product Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="221" y="0" width="69" height="20" uuid="4245db73-6ffa-4721-aba1-869ddd288c8c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sales Price]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="303" y="2" width="56" height="20" uuid="ac39df34-2ec2-49e5-98a9-74a4b99363f0"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Quntity]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="379" y="2" width="76" height="20" uuid="144bc5ae-fbb0-4d49-a0a1-41375b5cd3f9"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sales Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="17" height="20" uuid="56da3dcb-e36b-4907-a2a9-cc81ce445cf7"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="481" y="2" width="63" height="20" uuid="4a66575a-2a49-4dcd-9c38-de9d775b22a5"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sales Date]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="28" height="20" uuid="bba3d720-dd63-4364-87ce-1121a51736db"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement x="221" y="0" width="50" height="20" uuid="80e51c50-139a-4a36-92e8-985387f1b849"/>
+				<textFieldExpression><![CDATA[$F{sell_A_sell_price}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="398" y="0" width="36" height="20" uuid="42c137b5-425b-407f-94f0-c5ec43dda3c1"/>
+				<textFieldExpression><![CDATA[$F{sell_A_sell_total}]]></textFieldExpression>
+			</textField>
+			<textField pattern="yyyy/MM/dd HH.mm.ss">
+				<reportElement x="455" y="0" width="100" height="20" uuid="adb3f3fc-c6ba-43ce-8025-052c34d51621"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{sell_A_sell_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="2" width="112" height="18" uuid="89e538a6-96e5-413c-a5e4-c604f5a7f629"/>
+				<textFieldExpression><![CDATA[$F{sell_A_pro_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="303" y="4" width="34" height="16" uuid="4b5bc4fa-8372-4774-a3d5-b0ffded1c1f4"/>
+				<textFieldExpression><![CDATA[$F{sell_A_sell_qty}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="20">
+			<textField>
+				<reportElement x="290" y="0" width="56" height="20" uuid="4a545a0e-71af-4a1b-8323-5c53549f2a02"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{tQuntity}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement x="385" y="0" width="70" height="20" uuid="cdeee39b-796f-491e-93ed-e9701647fb7d"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{total_sale}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="50" y="0" width="112" height="20" uuid="be5588c2-1df3-4bfd-8626-c44060e642c1"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Totall ]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+</jasperReport>
